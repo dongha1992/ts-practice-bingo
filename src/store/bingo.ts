@@ -5,9 +5,28 @@ import {
   IBingoAction,
 } from 'interfaces/index';
 
-export const selectNumber = () => {};
-export const startGame = () => {};
-export const endGame = () => {};
+const BINGO_SELECT_NUMBER = 'BINGO_SELECT_NUMBER' as const;
+const BINGO_START_GAME = 'BINGO_START_GAME' as const;
+const BINGO_END_GAME = 'BINGO_END_GAME' as const;
+
+export const selectNumber = (number: number) => {
+  return {
+    type: BINGO_SELECT_NUMBER,
+    payload: number,
+  };
+};
+
+export const startGame = () => {
+  return {
+    type: BINGO_START_GAME,
+  };
+};
+
+export const endGame = () => {
+  return {
+    type: BINGO_END_GAME,
+  };
+};
 
 const initialStateGenerator = (): IBingo => {
   return {
@@ -27,10 +46,6 @@ const initialStateGenerator = (): IBingo => {
 const getNewbingoPlayer = () => {};
 
 const INITIAL_STATE: IBingo = initialStateGenerator();
-
-const BINGO_SELECT_NUMBER = 'BINGO_SELECT_NUMBER' as const;
-const BINGO_START_GAME = 'BINGO_START_GAME' as const;
-const BINGO_END_GAME = 'BINGO_END_GAME' as const;
 
 export const bingoReducer = (
   state: IBingo = INITIAL_STATE,

@@ -4,6 +4,11 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'store';
 
 function BingBoard() {
+  const bingoStatus = useSelector((state: RootState) => state.bingoReducer);
+  console.log(bingoStatus, 'status ');
+
+  const paintCompeltedLines = () => {};
+
   return <BingoBoardContainer></BingoBoardContainer>;
 }
 
