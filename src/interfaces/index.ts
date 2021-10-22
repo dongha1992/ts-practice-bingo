@@ -12,7 +12,7 @@ export interface IBingoPlayer {
 
 export interface IBingoCell {
   num: number;
-  isSelcected: boolean;
+  isSelected: boolean;
 }
 
 export interface IBingoAction {
