@@ -18,7 +18,9 @@ function BingoCell({ cell, player, isCompleted }: TProps) {
   );
   const dispatch = useDispatch();
 
-  const cellClickHandler = () => {};
+  const cellClickHandler = () => {
+    if (!cell || cell.isSelected) return;
+  };
 
   return (
     <BingoCellButton

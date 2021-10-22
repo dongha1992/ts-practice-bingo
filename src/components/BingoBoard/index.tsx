@@ -3,9 +3,12 @@ import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store';
 
-function BingBoard() {
+type TProps = {
+  player: string;
+};
+
+function BingBoard({ player }: TProps) {
   const bingoStatus = useSelector((state: RootState) => state.bingoReducer);
-  console.log(bingoStatus, 'status ');
 
   const paintCompeltedLines = () => {};
 
