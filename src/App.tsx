@@ -12,9 +12,10 @@ function App() {
   const [isGameStarted, setIsGameStarted] = useState<boolean>(false);
   const [winner, setWinner] = useState<number>(0);
 
-  const bingoStatus: IBingo = useSelector(
-    (state: RootState) => state.bingoReducer
+  const bingoStatus = useSelector(
+    (state: RootState) => state.bingoReducer as IBingo
   );
+
   const dispatch = useDispatch();
 
   const completed1p = bingoStatus[1].completed.length;

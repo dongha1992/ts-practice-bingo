@@ -4,7 +4,6 @@ import { IBingoCell, IBingo } from 'interfaces';
 import { selectNumber } from 'store/bingo';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store';
-import { theme } from 'styles/theme';
 
 type TProps = {
   cell: IBingoCell | null;
@@ -13,13 +12,16 @@ type TProps = {
 };
 
 function BingoCell({ cell, player, isCompleted }: TProps) {
-  const bingoStatus: IBingo = useSelector(
-    (state: RootState) => state.bingoReducer
+  const bingoStatus = useSelector(
+    (state: RootState) => state.bingoReducer as IBingo
   );
+
   const dispatch = useDispatch();
 
   const cellClickHandler = () => {
     if (!cell || cell.isSelected) return;
+    if (!bingoStatus[player].isTurn) return alert('잘못된 차례입니다.');
+    dispatch(selectNumber(cell.num));
   };
 
   return (
